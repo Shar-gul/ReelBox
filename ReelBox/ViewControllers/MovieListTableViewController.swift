@@ -15,7 +15,8 @@ class MovieListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "movieCell")
+        //tableView.register(UITableViewCell.self, forCellReuseIdentifier: "movieTableCell")
+        tableView.register(UINib(nibName: "MovieTableViewCell", bundle: nil), forCellReuseIdentifier: "movieTableCell")
         
 //        NowPlaying.requestNowPlaying(success: { (result) in
 //            print(result)
@@ -36,12 +37,15 @@ class MovieListTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath)
+        let cell : MovieTableViewCell = tableView.dequeueReusableCell(withIdentifier: "movieTableCell", for: indexPath) as! MovieTableViewCell
 
         let item = movieList[indexPath.item]
-        cell.textLabel?.text = item
+        cell.labelTitle.text = item
 
         return cell
     }
  
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 150.0
+//    }
 }
