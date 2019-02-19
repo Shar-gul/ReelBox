@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		681E2A4A221B6622003D6720 /* MovieListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681E2A48221B6622003D6720 /* MovieListTableViewController.swift */; };
+		681E2A4B221B6622003D6720 /* MovieListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681E2A49221B6622003D6720 /* MovieListTableViewController.xib */; };
 		68C101942214CCB8004B1880 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C101932214CCB8004B1880 /* AppDelegate.swift */; };
-		68C101962214CCB8004B1880 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C101952214CCB8004B1880 /* ViewController.swift */; };
-		68C101992214CCB8004B1880 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68C101972214CCB8004B1880 /* Main.storyboard */; };
 		68C1019B2214CCBA004B1880 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68C1019A2214CCBA004B1880 /* Assets.xcassets */; };
 		68C1019E2214CCBA004B1880 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68C1019C2214CCBA004B1880 /* LaunchScreen.storyboard */; };
 		68C101A72214CCE3004B1880 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C101A62214CCE3004B1880 /* NetworkManager.swift */; };
@@ -19,10 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		681E2A48221B6622003D6720 /* MovieListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListTableViewController.swift; sourceTree = "<group>"; };
+		681E2A49221B6622003D6720 /* MovieListTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieListTableViewController.xib; sourceTree = "<group>"; };
 		68C101902214CCB8004B1880 /* ReelBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReelBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68C101932214CCB8004B1880 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		68C101952214CCB8004B1880 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		68C101982214CCB8004B1880 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		68C1019A2214CCBA004B1880 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68C1019D2214CCBA004B1880 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68C1019F2214CCBA004B1880 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -43,6 +43,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		681E2A43221B64DE003D6720 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				681E2A48221B6622003D6720 /* MovieListTableViewController.swift */,
+				681E2A49221B6622003D6720 /* MovieListTableViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		681E2A4C221B684B003D6720 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				681E2A4D221B6857003D6720 /* CollectionCell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		681E2A4D221B6857003D6720 /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CollectionCell;
+			sourceTree = "<group>";
+		};
 		6840638922171AC900DACF97 /* NowPlaying */ = {
 			isa = PBXGroup;
 			children = (
@@ -71,11 +95,11 @@
 		68C101922214CCB8004B1880 /* ReelBox */ = {
 			isa = PBXGroup;
 			children = (
+				68C101932214CCB8004B1880 /* AppDelegate.swift */,
 				68C101AA2214DED2004B1880 /* Model */,
 				68C101A52214CCCE004B1880 /* Services */,
-				68C101932214CCB8004B1880 /* AppDelegate.swift */,
-				68C101952214CCB8004B1880 /* ViewController.swift */,
-				68C101972214CCB8004B1880 /* Main.storyboard */,
+				681E2A43221B64DE003D6720 /* ViewControllers */,
+				681E2A4C221B684B003D6720 /* Views */,
 				68C1019A2214CCBA004B1880 /* Assets.xcassets */,
 				68C1019C2214CCBA004B1880 /* LaunchScreen.storyboard */,
 				68C1019F2214CCBA004B1880 /* Info.plist */,
@@ -158,9 +182,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				681E2A4B221B6622003D6720 /* MovieListTableViewController.xib in Resources */,
 				68C1019E2214CCBA004B1880 /* LaunchScreen.storyboard in Resources */,
 				68C1019B2214CCBA004B1880 /* Assets.xcassets in Resources */,
-				68C101992214CCB8004B1880 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,9 +197,9 @@
 			files = (
 				68C101A72214CCE3004B1880 /* NetworkManager.swift in Sources */,
 				68C101AC2214DF0C004B1880 /* NowPlaying.swift in Sources */,
-				68C101962214CCB8004B1880 /* ViewController.swift in Sources */,
 				68C101A92214D02A004B1880 /* Configurations.swift in Sources */,
 				68C101AE2214E0B2004B1880 /* NowPlayingObject.swift in Sources */,
+				681E2A4A221B6622003D6720 /* MovieListTableViewController.swift in Sources */,
 				68C101942214CCB8004B1880 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -183,14 +207,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		68C101972214CCB8004B1880 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				68C101982214CCB8004B1880 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		68C1019C2214CCBA004B1880 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -332,7 +348,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiago.ReelBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -350,7 +366,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiago.ReelBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
