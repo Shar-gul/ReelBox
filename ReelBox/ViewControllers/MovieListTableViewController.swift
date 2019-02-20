@@ -10,19 +10,22 @@ import UIKit
 
 class MovieListTableViewController: UITableViewController {
 
-    let movieList = ["One","Two","Three"]
+    var movieList : [NowPlayingObject]? {didSet {tableView.reloadData() }}
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //tableView.register(UITableViewCell.self, forCellReuseIdentifier: "movieTableCell")
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 150.0
         tableView.register(UINib(nibName: "MovieTableViewCell", bundle: nil), forCellReuseIdentifier: "movieTableCell")
         
-//        NowPlaying.requestNowPlaying(success: { (result) in
-//            print(result)
-//        }) { (error) in
-//            print(error)
-//        }
+        NowPlaying.requestNowPlaying(success: { [unowned self] (result) in
+            DispatchQueue.main.async {
+                self.movieList = result
+            }
+        }) { (error) in
+            print(error)
+        }
     }
 
     // MARK: - Table view data source
@@ -32,20 +35,24 @@ class MovieListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movieList.count
+        var elements = 0
+        if let list = movieList {
+            elements = list.count
+        }
+        return elements
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : MovieTableViewCell = tableView.dequeueReusableCell(withIdentifier: "movieTableCell", for: indexPath) as! MovieTableViewCell
-
-        let item = movieList[indexPath.item]
-        cell.labelTitle.text = item
-
+        if let list = movieList {
+            cell.labelTitle.text = list[indexPath.item].title
+            cell.imageUrl = list[indexPath.item].backdropPath
+        }
         return cell
     }
  
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 150.0
-//    }
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150.0
+    }
 }

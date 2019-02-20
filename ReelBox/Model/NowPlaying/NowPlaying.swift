@@ -16,7 +16,7 @@ extension NowPlaying {
     
     static let REGION_KEY = "region"
     
-    class func requestNowPlaying(region: String = "PT", success: @escaping (_ success: NowPlaying) -> Void, failure: @escaping (String) -> Void) {
+    class func requestNowPlaying(region: String = "PT", success: @escaping (_ success: [NowPlayingObject]) -> Void, failure: @escaping (String) -> Void) {
         
         guard let urlComp = URLComponents(string: Configurations.server + "movie/now_playing?") else {
             failure("")
@@ -30,8 +30,8 @@ extension NowPlaying {
             do {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let results = try decoder.decode(NowPlaying.self, from: response as! Data)
-                success(results)
+                let resultObject = try decoder.decode(NowPlaying.self, from: response as! Data)
+                success(resultObject.results)
             } catch let jsonErr {
                 print("Error", jsonErr)
                 failure("Error \(jsonErr)")

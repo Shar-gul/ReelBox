@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class NowPlayingObject : Decodable {
     
     var voteCount : Int
