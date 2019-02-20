@@ -15,8 +15,6 @@ class MovieListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 150.0
         tableView.register(UINib(nibName: "MovieTableViewCell", bundle: nil), forCellReuseIdentifier: "movieTableCell")
         
         NowPlaying.requestNowPlaying(success: { [unowned self] (result) in
@@ -27,8 +25,6 @@ class MovieListTableViewController: UITableViewController {
             print(error)
         }
     }
-
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -46,13 +42,15 @@ class MovieListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : MovieTableViewCell = tableView.dequeueReusableCell(withIdentifier: "movieTableCell", for: indexPath) as! MovieTableViewCell
         if let list = movieList {
+            cell.imageViewMovie.image = nil
             cell.labelTitle.text = list[indexPath.item].title
-            cell.imageUrl = list[indexPath.item].backdropPath
+            cell.imageUrl = list[indexPath.item].posterPath
+//            cell.imageUrl = list[indexPath.item].backdropPath
         }
         return cell
     }
  
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150.0
+        return 190.0
     }
 }

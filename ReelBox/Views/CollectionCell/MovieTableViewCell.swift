@@ -17,6 +17,7 @@ class MovieTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        imageViewMovie.image = UIImage(named: "reel")
     }
     
     private func requestImage() {
