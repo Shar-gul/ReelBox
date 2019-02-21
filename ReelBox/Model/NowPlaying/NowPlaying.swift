@@ -16,7 +16,7 @@ extension NowPlaying {
     
     static let REGION_KEY = "region"
     
-    class func requestNowPlaying(region: String = "PT", success: @escaping (_ success: [NowPlayingObject]) -> Void, failure: @escaping (String) -> Void) {
+    class func requestNowPlaying(region: String = "US", success: @escaping (_ success: [NowPlayingObject]) -> Void, failure: @escaping (String) -> Void) {
         
         guard let urlComp = URLComponents(string: Configurations.server + "movie/now_playing?") else {
             failure("")

@@ -25,11 +25,7 @@ class MovieListTableViewController: UITableViewController {
             print(error)
         }
     }
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var elements = 0
         if let list = movieList {
@@ -42,10 +38,8 @@ class MovieListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : MovieTableViewCell = tableView.dequeueReusableCell(withIdentifier: "movieTableCell", for: indexPath) as! MovieTableViewCell
         if let list = movieList {
-            cell.imageViewMovie.image = nil
             cell.labelTitle.text = list[indexPath.item].title
             cell.imageUrl = list[indexPath.item].posterPath
-//            cell.imageUrl = list[indexPath.item].backdropPath
         }
         return cell
     }

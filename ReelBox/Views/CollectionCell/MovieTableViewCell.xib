@@ -21,6 +21,10 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hi7-ky-sSj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="189.5"/>
                     </imageView>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zEp-qQ-Yl6" userLabel="background Title View">
+                        <rect key="frame" x="8" y="140.5" width="304" height="41"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label big enough that does not fit in one single line " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSO-28-UUx">
                         <rect key="frame" x="8" y="140.5" width="304" height="41"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -30,8 +34,12 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="aSO-28-UUx" secondAttribute="bottom" constant="8" id="3pc-uM-gpf"/>
+                    <constraint firstItem="zEp-qQ-Yl6" firstAttribute="bottom" secondItem="aSO-28-UUx" secondAttribute="bottom" id="6eg-v5-mfV"/>
+                    <constraint firstItem="zEp-qQ-Yl6" firstAttribute="trailing" secondItem="aSO-28-UUx" secondAttribute="trailing" id="H1C-ZJ-G3L"/>
                     <constraint firstAttribute="trailing" secondItem="aSO-28-UUx" secondAttribute="trailing" constant="8" id="JLS-ID-3pc"/>
                     <constraint firstItem="hi7-ky-sSj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="PGl-ms-ZDe"/>
+                    <constraint firstItem="zEp-qQ-Yl6" firstAttribute="leading" secondItem="aSO-28-UUx" secondAttribute="leading" id="SUA-Gp-BmP"/>
+                    <constraint firstItem="zEp-qQ-Yl6" firstAttribute="top" secondItem="aSO-28-UUx" secondAttribute="top" id="TUL-gD-CIs"/>
                     <constraint firstAttribute="bottom" secondItem="hi7-ky-sSj" secondAttribute="bottom" id="Z2A-68-O7D"/>
                     <constraint firstAttribute="trailing" secondItem="hi7-ky-sSj" secondAttribute="trailing" id="im6-2F-J21"/>
                     <constraint firstItem="hi7-ky-sSj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="lhA-Zw-8DF"/>
@@ -39,6 +47,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="backgroundTitleView" destination="zEp-qQ-Yl6" id="fN8-8B-dNa"/>
                 <outlet property="imageViewMovie" destination="hi7-ky-sSj" id="fgf-ID-SsK"/>
                 <outlet property="labelTitle" destination="aSO-28-UUx" id="3Ih-bk-13z"/>
             </connections>
