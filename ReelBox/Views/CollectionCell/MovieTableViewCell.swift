@@ -11,35 +11,32 @@ import UIKit
 class MovieTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imageViewMovie: UIImageView!
-    @IBOutlet var backgroundTitleView: UIView!
     @IBOutlet weak var labelTitle: UILabel! {didSet {
-        labelTitle.font = UIFont.systemFont(ofSize: 22, weight: UIFont.Weight.bold)
+        labelTitle.font = UIFont.systemFont(ofSize: 23, weight: UIFont.Weight.bold)
         labelTitle.textColor = UIColor.white
-        colors = [UIColor.lightGray.withAlphaComponent(0.35),UIColor.clear]
     }}
     var imageUrl: String? {didSet { requestImage()}}
-    private let gradientLayer = RadialGradientLayer()
-    
-    var colors: [UIColor] {
-        get {
-            return gradientLayer.colors
-        }
-        set {
-            gradientLayer.colors = newValue
-        }
-    }
+    let gradientLayer = CAGradientLayer()
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
         if gradientLayer.superlayer == nil {
-            backgroundTitleView.layer.insertSublayer(gradientLayer, at: 0)
+            imageViewMovie.layoutIfNeeded()
+            
+            gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.withAlphaComponent(0.35).cgColor]
+            gradientLayer.frame = CGRect(x: 0, y: 0, width: imageViewMovie.frame.width, height: imageViewMovie.frame.height)
+            
+            imageViewMovie.layer.addSublayer(gradientLayer)
         }
-        gradientLayer.frame = bounds
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        gradientLayer.isHidden = true
+        imageViewMovie.layer.cornerRadius = 4.0
+        imageViewMovie.clipsToBounds = true
     }
     
     private func requestImage() {
@@ -52,6 +49,7 @@ class MovieTableViewCell: UITableViewCell {
         
         NetworkManager.requestURL(url: urlComp, success: { (dataResult) in
             DispatchQueue.main.async() {
+                self.gradientLayer.isHidden = false
                 self.imageViewMovie.contentMode = .scaleAspectFill
                 self.imageViewMovie.image = UIImage(data: dataResult as! Data)
             }

@@ -45,6 +45,6 @@ class MovieListTableViewController: UITableViewController {
     }
  
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 190.0
+        return 250.0
     }
 }
