@@ -14,7 +14,7 @@ class MovieListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.register(UINib(nibName: "MovieTableViewCell", bundle: nil), forCellReuseIdentifier: "movieTableCell")
         
         NowPlaying.requestNowPlaying(success: { [unowned self] (result) in
@@ -46,5 +46,12 @@ class MovieListTableViewController: UITableViewController {
  
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 250.0
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let movieDetailVC = MovieDetailViewController()
+        self.navigationController?.pushViewController(movieDetailVC, animated: true)
+        
     }
 }
