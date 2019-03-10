@@ -1,5 +1,5 @@
 //
-//  NowPlayingObject.swift
+//  MovieObject.swift
 //  ReelBox
 //
 //  Created by Tiago Valente on 13/02/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NowPlayingObject : Decodable {
+class MovieObject : Decodable {
     
     var voteCount : Int
     var id : Int

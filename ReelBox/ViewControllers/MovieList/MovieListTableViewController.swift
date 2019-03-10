@@ -10,7 +10,7 @@ import UIKit
 
 class MovieListTableViewController: UITableViewController {
 
-    var movieList : [NowPlayingObject]? {didSet {tableView.reloadData() }}
+    var movieList : [MovieObject]? {didSet {tableView.reloadData() }}
     
     override func viewDidLoad() {
         super.viewDidLoad()
